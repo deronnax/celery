@@ -18,13 +18,6 @@ from . import local
 SERIES = 'immunity'
 
 __version__ = '5.5.1'
-__author__ = 'Ask Solem'
-__contact__ = 'auvipy@gmail.com'
-__homepage__ = 'https://docs.celeryq.dev/'
-__docformat__ = 'restructuredtext'
-__keywords__ = 'task job queue distributed messaging actor'
-
-# -eof meta-
 
 __all__ = (
     'Celery', 'bugreport', 'shared_task', 'Task',
