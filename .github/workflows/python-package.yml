@@ -38,7 +38,7 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ['3.11', '3.12', '3.13', '3.14', '3.15', 'pypy3.11']
-        os: ["blacksmith-4vcpu-ubuntu-2404", "windows-latest"]
+        os: ["ubuntu-latest", "windows-latest"]
         exclude:
             - python-version: '3.11'
               os: "windows-latest"
@@ -53,7 +53,7 @@ jobs:
 
     steps:
     - name: Install apt packages
-      if: startsWith(matrix.os, 'blacksmith-4vcpu-ubuntu')
+      if: startsWith(matrix.os, 'ubuntu')
       run: |
         echo 'Acquire::ForceIPv4 "true";' | sudo tee /etc/apt/apt.conf.d/99force-ipv4
         sudo apt-get update
@@ -96,7 +96,7 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
 
   Discover-test-modules:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     outputs:
       integration: ${{ steps.discover.outputs.integration }}
       smoke: ${{ steps.discover.outputs.smoke }}
